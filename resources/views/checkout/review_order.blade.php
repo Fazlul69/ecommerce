@@ -131,12 +131,12 @@
                         </div>
                         <div class="payment-options">
                             <span>Select Payment Method : </span>
-                        <span>
-                            <label><input type="radio" name="payment_method" value="COD" checked> Cash On Delivery</label>
-                        </span>
                             <span>
-                            <label><input type="radio" name="payment_method" value="Paypal"> Paypal</label>
-                        </span>
+                                <label><input type="radio" name="payment_method" value="COD" checked> Cash On Delivery</label>
+                            </span>
+                            <span>
+                                <label><input type="radio" name="payment_method" value="ssl"> SSL</label>
+                            </span>
                             <button type="submit" class="btn btn-primary" style="float: right;">Order Now</button>
                         </div>
                     </section>

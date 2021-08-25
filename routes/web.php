@@ -18,7 +18,7 @@ Route::get('/product-detail/{id}','IndexController@detialpro');
 ////// get Attribute ////////////
 Route::get('/get-product-attr','IndexController@getAttrs');
 ///// Cart Area /////////
-Route::post('/addToCart','CartController@addToCart')->name('addToCart');
+Route::post('/addToCart','CartController@addToCart')->name('cart.add');
 Route::get('/viewcart','CartController@index');
 Route::get('/cart/deleteItem/{id}','CartController@deleteItem');
 Route::get('/cart/update-quantity/{id}/{quantity}','CartController@updateQuantity');
@@ -82,3 +82,17 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function (){
 
 ///
 });
+
+// SSLCOMMERZ Start
+Route::get('/example1', 'SslCommerzPaymentController@exampleEasyCheckout');
+Route::get('/example2', 'SslCommerzPaymentController@exampleHostedCheckout')->name('ssl.pay');
+
+Route::post('/pay', 'SslCommerzPaymentController@index');
+Route::post('/pay-via-ajax', 'SslCommerzPaymentController@payViaAjax');
+
+Route::post('/success', 'SslCommerzPaymentController@success');
+Route::post('/fail', 'SslCommerzPaymentController@fail');
+Route::post('/cancel', 'SslCommerzPaymentController@cancel');
+
+Route::post('/ipn', 'SslCommerzPaymentController@ipn');
+//SSLCOMMERZ END

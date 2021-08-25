@@ -107,7 +107,8 @@
                                 <li>Total <span>$ {{$total_price}}</span></li>
                             @endif
                         </ul>
-                        <div style="margin-left: 20px;"><a class="btn btn-default check_out" href="{{url('/check-out')}}">Check Out</a></div>
+                        <!-- <div style="margin-left: 20px;"><a class="btn btn-default check_out" href="{{url('/check-out')}}">Check Out</a></div> -->
+                        <div style="margin-left: 20px;"><a class="btn btn-default check_out" href="{{route('ssl.pay')}}">Check Out</a></div>
                     </div>
                 </div>
             </div>

@@ -2521,3 +2521,10 @@ h2.title {
 }
 
 
+/* update */
+.logo.pull-left img {
+  width: 80px;
+}
+.shop-menu.pull-right {
+  margin-top: 10px;
+}

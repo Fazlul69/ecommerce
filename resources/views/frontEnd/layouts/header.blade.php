@@ -59,8 +59,8 @@
         </div>
     </div><!--/header-middle-->
 
-    <div class="header-bottom"><!--header-bottom-->
-        <div class="container">
+    <!-- <div class="header-bottom">header-bottom -->
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-sm-9">
                     <div class="navbar-header">
@@ -89,6 +89,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div><!--/header-bottom-->
+        </div> -->
+    <!-- </div>/header-bottom -->
 </header><!--/header-->

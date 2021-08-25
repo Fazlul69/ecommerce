@@ -37,6 +37,7 @@ class OrdersController extends Controller
     }
     public function paypal(Request $request){
         $who_buying=Orders_model::where('users_id',Auth::id())->first();
-        return view('payment.paypal',compact('who_buying'));
+        // return view('payment.paypal',compact('who_buying'));
+        return view('ssl.pay',compact('who_buying'));
     }
 }
