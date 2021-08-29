@@ -52,33 +52,33 @@
                     <div class="control-group">
                         <label for="p_color" class="control-label">Color</label>
                         <div class="controls{{$errors->has('p_color')?' has-error':''}}">
-                            <input type="text" name="p_color" id="p_color" value="{{old('p_color')}}" required="required" style="width: 400px;">
+                            <input type="text" name="p_color" class="form-control" id="p_color" value="{{old('p_color')}}" required="required" style="width: 400px;">
                             <span class="text-danger">{{$errors->first('p_color')}}</span>
                         </div>
                     </div>
-                    <div class="control-group">
+                    <div class="control-group input-group">
                         <label for="description" class="control-label">Description</label>
                         <div class="controls{{$errors->has('description')?' has-error':''}}">
-                            <textarea class="textarea_editor span12" name="description" id="description" rows="6" placeholder="Product Description" style="width: 580px;">{{old('description')}}</textarea>
+                            <textarea class=" span12 form-control" name="description" id="description"  placeholder="Product Description" style="width: 400px;margin-top: 33px;margin-left: 1px;">{{old('description')}}</textarea>
                             <span class="text-danger">{{$errors->first('description')}}</span>
                         </div>
                     </div>
-                    <div class="control-group">
+                    
+                    <div class="control-group input-group">
                         <label for="price" class="control-label">Price</label>
                         <div class="controls{{$errors->has('price')?' has-error':''}}">
-                            <div class="input-prepend"> <span class="add-on">$</span>
-                                <input type="number" name="price" id="price" class="" value="{{old('price')}}" title="" required="required">
-                                <span class="text-danger">{{$errors->first('price')}}</span>
-                            </div>
+                            <input type="number" name="price" class="form-control" id="price" class="" value="{{old('price')}}" title="" required="required" style="width: 400px;margin-top: 40px;">
+                             <span class="text-danger">{{$errors->first('price')}}</span>   
                         </div>
                     </div>
-                    <div class="control-group">
+                    <div class="control-group ">
                         <label class="control-label">Image upload</label>
                         <div class="controls">
-                            <input type="file" name="image" id="image"/>
+                            <input class="form-control" type="file" name="image" id="image">
                             <span class="text-danger">{{$errors->first('image')}}</span>
                         </div>
                     </div>
+                    
                     <div class="control-group">
                         <label for="" class="control-label"></label>
                         <div class="controls">

@@ -34,7 +34,7 @@
                     <div class="control-group">
                         <label for="amount_type" class="control-label">Amount Type</label>
                         <div class="controls{{$errors->has('amount_type')?' has-error':''}}">
-                            <select name="amount_type" id="amount_type" class="form-control" style="width: 415px;">
+                            <select name="amount_type" id="amount_type"  style="width: 415px;">
                                 <option value="Percentage">Percentage</option>
                             </select>
                             <span class="text-danger">{{$errors->first('amount_type')}}</span>

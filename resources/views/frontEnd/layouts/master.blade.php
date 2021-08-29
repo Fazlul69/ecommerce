@@ -6,6 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@yield('title','Master Page')</title>
+    <link href="{{asset('frontEnd/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('frontEnd/css/prettyPhoto.css')}}" rel="stylesheet">
@@ -19,14 +20,19 @@
     <![endif]-->
     <link rel="stylesheet" href="{{asset('easyzoom/css/easyzoom.css')}}" />
 </head><!--/head-->
-
 <body>
 @include('frontEnd.layouts.header')
 @section('slider')
     @include('frontEnd.layouts.slider')
 @show
+
 @yield('content')
-@include('frontEnd.layouts.footer')
+<!-- @include('frontEnd.layouts.footer') -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+<script src="{{asset('frontEnd/js/bootstrap.js')}}"></script>
 <script src="{{asset('frontEnd/js/jquery.js')}}"></script>
 <script src="{{asset('frontEnd/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('frontEnd/js/jquery.scrollUp.min.js')}}"></script>

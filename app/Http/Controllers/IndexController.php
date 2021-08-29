@@ -6,6 +6,11 @@ use App\Category_model;
 use App\ImageGallery_model;
 use App\ProductAtrr_model;
 use App\Products_model;
+use App\Review;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -26,10 +31,11 @@ class IndexController extends Controller
     }
     public function detialpro($id){
         $detail_product=Products_model::findOrFail($id);
+        $reviews = Review::all();
         $imagesGalleries=ImageGallery_model::where('products_id',$id)->get();
         $totalStock=ProductAtrr_model::where('products_id',$id)->sum('stock');
         $relateProducts=Products_model::where([['id','!=',$id],['categories_id',$detail_product->categories_id]])->get();
-        return view('frontEnd.product_details',compact('detail_product','imagesGalleries','totalStock','relateProducts'));
+        return view('frontEnd.product_details',compact('detail_product','imagesGalleries','totalStock','relateProducts'))->with('reviews', $reviews);
     }
     public function getAttrs(Request $request){
         $all_attrs=$request->all();

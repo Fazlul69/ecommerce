@@ -15,7 +15,7 @@
                         <div class="control-group{{$errors->has('name')?' has-error':''}}">
                             <label class="control-label">Category Name :</label>
                             <div class="controls">
-                                <input type="text" name="name" id="name" value="{{old('name')}}" required>
+                                <input type="text" name="name"class="form-control" id="name" value="{{old('name')}}" required>
                                 <span class="text-danger" id="chCategory_name" style="color: red;">{{$errors->first('name')}}</span>
                             </div>
                         </div>
@@ -48,14 +48,14 @@
                         <div class="control-group{{$errors->has('url')?' has-error':''}}">
                             <label class="control-label">URL (Start with http://) :</label>
                             <div class="controls">
-                                <input type="text" name="url" id="url">
+                                <input class="form-control" type="text" name="url" id="url">
                                 <span class="text-danger">{{$errors->first('url')}}</span>
                             </div>
                         </div>
                         <div class="control-group{{$errors->has('status')?' has-error':''}}">
                             <label class="control-label">Enable :</label>
                             <div class="controls">
-                                <input type="checkbox" name="status" id="status" value="1">
+                                <input class="form-control" type="checkbox" name="status" id="status" value="1">
                                 <span class="text-danger">{{$errors->first('status')}}</span>
                             </div>
                         </div>

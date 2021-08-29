@@ -43,30 +43,55 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+        // $this->validate($request,[
+        //     'p_name'=>'required|min:5',
+        //     'p_code'=>'required',
+        //     'p_color'=>'required',
+        //     'description'=>'required',
+        //     'price'=>'required|numeric',
+        //     'image'=>'required|image|mimes:png,jpg,jpeg|max:2048',
+        // ]);
+        // $formInput=$request->all();
+        // if($request->file('image')){
+        //     $image=$request->file('image');
+        //     if($image->isValid()){
+        //         $fileName=time().'-'.str_slug($formInput['p_name'],"-").'.'.$image->getClientOriginalExtension();
+        //         $large_image_path=public_path('products/large/'.$fileName);
+        //         $medium_image_path=public_path('products/medium/'.$fileName);
+        //         $small_image_path=public_path('products/small/'.$fileName);
+        //         //Resize Image
+        //         Image::make($image)->save($large_image_path);
+        //         Image::make($image)->resize(600,600)->save($medium_image_path);
+        //         Image::make($image)->resize(300,300)->save($small_image_path);
+        //         $formInput['image']=$fileName;
+        //     }
+        // }
+       
+        // Products_model::create($formInput);
         $this->validate($request,[
             'p_name'=>'required|min:5',
             'p_code'=>'required',
             'p_color'=>'required',
             'description'=>'required',
             'price'=>'required|numeric',
-            'image'=>'required|image|mimes:png,jpg,jpeg|max:1000',
+            'image' => 'required',
         ]);
-        $formInput=$request->all();
-        if($request->file('image')){
-            $image=$request->file('image');
-            if($image->isValid()){
-                $fileName=time().'-'.str_slug($formInput['p_name'],"-").'.'.$image->getClientOriginalExtension();
-                $large_image_path=public_path('products/large/'.$fileName);
-                $medium_image_path=public_path('products/medium/'.$fileName);
-                $small_image_path=public_path('products/small/'.$fileName);
-                //Resize Image
-                Image::make($image)->save($large_image_path);
-                Image::make($image)->resize(600,600)->save($medium_image_path);
-                Image::make($image)->resize(300,300)->save($small_image_path);
-                $formInput['image']=$fileName;
-            }
+
+        $products = new Products_model;
+        $products = Products_model::create($request->all());
+        
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $file->move('products/small/',$filename);
+            $products->image = $filename;
+        }else{
+            //return $request;
+            $products->image = '';
         }
-        Products_model::create($formInput);
+
+        $products->save();
         return redirect()->route('product.create')->with('message','Add Products Successfully!');
     }
 
@@ -119,6 +144,7 @@ class ProductsController extends Controller
                 $image=$request->file('image');
                 if($image->isValid()){
                     $fileName=time().'-'.str_slug($formInput['p_name'],"-").'.'.$image->getClientOriginalExtension();
+                    $filename = time().'.'.$extension;
                     $large_image_path=public_path('products/large/'.$fileName);
                     $medium_image_path=public_path('products/medium/'.$fileName);
                     $small_image_path=public_path('products/small/'.$fileName);
@@ -126,7 +152,8 @@ class ProductsController extends Controller
                     Image::make($image)->save($large_image_path);
                     Image::make($image)->resize(600,600)->save($medium_image_path);
                     Image::make($image)->resize(300,300)->save($small_image_path);
-                    $formInput['image']=$fileName;
+                    // $formInput['image']=$fileName;
+                    $formInput->image = $filename;
                 }
             }
         }else{

@@ -14,6 +14,13 @@ class Products_model extends Model
         return $this->belongsTo(Category_model::class,'categories_id','id');
     }
     public function attributes(){
-        return $this->hasMany(ProductAtrr_model::class,'products_id','id');
+        return $this->hasMany(ProductAtrr_model::class,'id', 'products_id');
+    }
+    public function ratings()
+    {
+        return $this->hasMany('App\Review');
+    }
+    public function user(){
+        return $this->belongsTo(User::class,'users_id','id');
     }
 }

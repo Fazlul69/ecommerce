@@ -20,13 +20,10 @@
                         <th>Name</th>
                         <th>Address</th>
                         <th>City</th>
-                        <th>State</th>
-                        <th>Pincode</th>
-                        <th>Country</th>
                         <th>Mobile</th>
                         <th>Shipping Charges</th>
                         <th>Coupon Code</th>
-                        <th>Coupon Amount</th>
+                        <th>Transaction Id</th>
                         <th>Order Status</th>
                         <th>Payment Method</th>
                         <th>Grand Total</th>
@@ -40,13 +37,10 @@
                            <td style="text-align: center; vertical-align: middle;">{{$o->name}}</td>
                            <td style="text-align: center; vertical-align: middle;">{{$o->address}}</td>
                            <td style="text-align: center; vertical-align: middle;">{{$o->city}}</td>
-                           <td style="text-align: center; vertical-align: middle;">{{$o->state}}</td>
-                           <td style="text-align: center; vertical-align: middle;">{{$o->pincode}}</td>
-                           <td style="text-align: center; vertical-align: middle;">{{$o->country}}</td>
                            <td style="text-align: center; vertical-align: middle;">{{$o->mobile}}</td>
                            <td style="text-align: center; vertical-align: middle;">{{$o->shipping_charges}}</td>
                            <td style="text-align: center; vertical-align: middle;">{{$o->coupon_code}}</td>
-                           <td style="text-align: center; vertical-align: middle;">{{$o->coupon_amount}}</td>
+                           <td style="text-align: center; vertical-align: middle;">{{$o->transaction_id}}</td>
                            <td style="text-align: center; vertical-align: middle;">{{$o->order_status}}</td>
                            <td style="text-align: center; vertical-align: middle;">{{$o->payment_method}}</td>
                            <td style="text-align: center; vertical-align: middle;">{{$o->grand_total}}</td>

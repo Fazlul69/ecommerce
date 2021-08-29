@@ -58,6 +58,7 @@ class CheckOutController extends Controller
             'country'=>$input_data['billing_country'],
             'pincode'=>$input_data['billing_pincode'],
             'mobile'=>$input_data['billing_mobile']]);
+        
        return redirect('/order-review');
 
     }

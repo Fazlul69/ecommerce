@@ -9,7 +9,7 @@
                 {{Session::get('message')}}
             </div>
         @endif
-        <div class="row">
+        <div class="row ttt">
             <div class="col-sm-4 col-sm-offset-1">
                 <div class="login-form"><!--login form-->
                     <h2>Login to your account</h2>

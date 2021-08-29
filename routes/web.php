@@ -14,7 +14,10 @@
 Route::get('/','IndexController@index');
 Route::get('/list-products','IndexController@shop');
 Route::get('/cat/{id}','IndexController@listByCat')->name('cats');
-Route::get('/product-detail/{id}','IndexController@detialpro');
+Route::get('/product-detail/{id}','IndexController@detialpro')->name('product.details');
+
+    // review
+Route::post('/review','ReviewController@addReview')->name('review.add');
 ////// get Attribute ////////////
 Route::get('/get-product-attr','IndexController@getAttrs');
 ///// Cart Area /////////
@@ -28,7 +31,7 @@ Route::post('/apply-coupon','CouponController@applycoupon');
 /// Simple User Login /////
 Route::get('/login_page','UsersController@index');
 Route::post('/register_user','UsersController@register');
-Route::post('/user_login','UsersController@login');
+Route::post('/user_login','UsersController@login')->name('login');
 Route::get('/logout','UsersController@logout');
 
 ////// User Authentications ///////////
@@ -44,6 +47,7 @@ Route::group(['middleware'=>'FrontLogin_middleware'],function (){
     Route::get('/paypal','OrdersController@paypal');
 });
 ///
+
 
 
 
@@ -65,6 +69,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function (){
     Route::resource('/product','ProductsController');
     Route::get('delete-product/{id}','ProductsController@destroy');
     Route::get('delete-image/{id}','ProductsController@deleteImage');
+    Route::post('/product/create','ProductsController@store')->name('product.store');
     /// Product Attribute
     Route::resource('/product_attr','ProductAtrrController');
     Route::get('delete-attribute/{id}','ProductAtrrController@deleteAttr');

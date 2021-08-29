@@ -42,22 +42,39 @@
                             <td style="vertical-align: middle;text-align: center;"><a href="{{route('image-gallery.show',$product->id)}}" class="btn btn-default btn-mini">Add Images</a></td>
                             <td style="vertical-align: middle;text-align: center;"><a href="{{route('product_attr.show',$product->id)}}" class="btn btn-success btn-mini">Add Attr</a></td>
                             <td style="text-align: center; vertical-align: middle;">
-                                <a href="#myModal{{$product->id}}" data-toggle="modal" class="btn btn-info btn-mini">View</a>
+                                <!-- <a href="#myModal{{$product->id}}" data-bs-toggle="modal" data-bs-target="#exampleModal" type="button"  class="btn btn-primary">View</a> -->
                                 <a href="{{route('product.edit',$product->id)}}" class="btn btn-primary btn-mini">Edit</a>
-                                <a href="javascript:" rel="{{$product->id}}" rel1="delete-product" class="btn btn-danger btn-mini deleteRecord">Delete</a>
+                                <a href="javascript:" rel="{{$product->id}}" rel1="delete-product"style="margin-top: 0px;"  class="btn btn-danger btn-mini deleteRecord">Delete</a>
                             </td>
                         </tr>
                         {{--Pop Up Model for View Product--}}
-                        <div id="myModal{{$product->id}}" class="modal hide">
+                        <!-- Button trigger modal -->
+                        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
+                        </button> -->
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
                             <div class="modal-header">
-                                <button data-dismiss="modal" class="close" type="button">×</button>
-                                <h3>{{$product->p_name}}</h3>
+                                <h5 class="modal-title">{{$product->p_name}}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="text-center"><img src="{{url('products/small',$product->image)}}" width="100" alt="{{$product->p_code}}"></div>
                                 <p class="text-center">{{$product->description}}</p>
                             </div>
+                            <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                            </div>
                         </div>
+                        </div>
+
+             
+
                         {{--Pop Up Model for View Product--}}
                     @endforeach
                     </tbody>
